@@ -36,9 +36,26 @@ const Form = () => {
         const totaluser = [...user,User]
 
 
+        const url = "http://localhost:7000/api/add-billing";
+
+        fetch(url,{
+          method : "POST",
+          headers : {
+            "content-type" : "application/json",
+            
+          },
+          body:JSON.stringify(User)
+        })
+        .then(res => res.json())
+        .then(result => {
+          console.log(result);
+       
+        })
+
+
         setUser(totaluser);
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+        
           setSubmitting(false);
         }, 400);
 
