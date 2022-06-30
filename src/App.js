@@ -15,7 +15,7 @@ function App() {
   const [user ,setUser] = useState([])
   return (
     <div className="App">
-      <h3>User name : {user?.fullname}</h3>
+   
       <SetUser.Provider value={setUser}>
         <User.Provider value={user}>
           <Header />

@@ -2,3 +2,18 @@
   display: block;
   width: 100%;
 }
+
+
+.pagination button{
+  margin: 10px;
+  background-color: black;
+  padding: 10px;
+  color: white;
+
+
+}
+
+.pagination .selected{
+  background-color: orange;
+  color: white;
+}

@@ -34,23 +34,22 @@ const Form = () => {
         const User = {fullname,email,phone,paidamount};
 
         const totaluser = [...user,User]
+        console.log(totaluser)
 
 
         const url = "http://localhost:7000/api/add-billing";
 
-        fetch(url,{
-          method : "POST",
-          headers : {
-            "content-type" : "application/json",
-            
+        fetch(url, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
           },
-          body:JSON.stringify(User)
+          body: JSON.stringify(User),
         })
-        .then(res => res.json())
-        .then(result => {
-          console.log(result);
-       
-        })
+          .then((res) => res.json())
+          .then((result) => {
+            console.log(result);
+          });
 
 
         setUser(totaluser);
