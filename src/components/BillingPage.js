@@ -1,5 +1,6 @@
 
-
+import BillingPagedata from './BillingPagedata';
+import Form from './Form';
 
 const BillingPage = () => {
 
@@ -29,10 +30,10 @@ const BillingPage = () => {
             >
               ✕
             </label>
-     
+           <Form/>
           </div>
         </div>
-
+        <BillingPagedata/>
       </div>
     );
 };
