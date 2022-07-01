@@ -1,18 +1,23 @@
 
-import { useRef, useState } from 'react';
+import axios from 'axios';
+import { useEffect, useRef, useState } from 'react';
 import BillingPagedata from './BillingPagedata';
 import Form from './Form';
 
 const BillingPage = () => {
 
-  const [searchresult,setSearchresult] = useState([])
+  const [query, setQuery] = useState("");
+  const [data, setData] = useState([]);
 
+useEffect(() => {
+  const fetchData = async () => {
+    const res = await axios.get(`http://localhost:7000/search?q=${query}`);
+    setData(res.data);
+  };
+  if (query.length === 0 || query.length > 2) fetchData();
+}, [query]);
 
-
-
-  const searching = () => {
-   
-  }
+console.log(data)
 
 
         return (
@@ -23,8 +28,7 @@ const BillingPage = () => {
                 <input
                   type="text"
                   placeholder="Search"
-               
-                
+                  onChange={(e) => setQuery(e.target.value.toLowerCase())}
                   className="border-solid border -2"
                 />
               </div>

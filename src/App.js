@@ -7,6 +7,8 @@ import { createContext, useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import Form from './components/Form';
 import Home from './pages/Home';
+import Login from './components/Login';
+import Signup from './components/SignUp';
 
 
 
@@ -22,12 +24,13 @@ function App() {
       <SetUser.Provider value={setUser}>
         <User.Provider value={user}>
           <Header />
-          
 
           <Routes>
-            <Route exact path="/" element={<Home/>}></Route>
-         
-            <Route path="/form/:id" element={<Form/>}></Route>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/login" element={<Login />}></Route>
+            <Route exact path="/signup" element={<Signup />}></Route>
+
+            <Route path="/form/:id" element={<Form />}></Route>
           </Routes>
         </User.Provider>
       </SetUser.Provider>
