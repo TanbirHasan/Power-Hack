@@ -1,11 +1,16 @@
 import React, {  useContext } from "react";
+import {useParams} from "react-router-dom"
 import { Formik } from "formik";
 import { SetUser, User } from "../App";
 
 const Form = () => {
 
+  const {id} = useParams()
+
    const setUser = useContext(SetUser);
    const user = useContext(User);
+
+   
 
 
 
@@ -52,6 +57,24 @@ const Form = () => {
           });
 
 
+
+
+
+           fetch(`http://localhost:7000/api/update-billing/${id}`, {
+             method: "PUT",
+             headers: {
+               "content-type": "application/json",
+             },
+             body: JSON.stringify(User),
+           })
+             .then((res) => res.json())
+             .then((data) => {
+               if (data) {
+                 alert("Your Information Submitted Succesfully");
+               }
+             });
+
+
         setUser(totaluser);
         setTimeout(() => {
         
@@ -71,7 +94,7 @@ const Form = () => {
         isSubmitting,
         /* and other goodies */
       }) => (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
           <label>Full-Name</label>
           <input
             type="text"
