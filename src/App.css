@@ -28,3 +28,11 @@
   background-color: orange;
   color: white;
 }
+
+.input{
+  width: 200px;
+}
+
+#form-input{
+  width: 400px;
+}
